@@ -37,14 +37,16 @@ int main()
                 cin >> name >>a;
                 if(!router.modificar_enlace(name,a)) cout << "Error al modificar el enlace. Este no existe."<<endl;
                 break;
-            default:
+            case 4:
                 router.imprimir();
+                break;
+            default:
                 break;
             }
             break;
         case 'B':
             cout <<"Escogiste el B"<<endl;
-            cout << "Presiona 1 para agregar enlace: ";
+            cout << "Presiona 1 para agregar enlace, 2  para eliminar enlace, 3 para imprimir enrutador y 4 para imprimir toda la red: ";
             cin >> a;
             switch (a){
             case 1:
@@ -53,12 +55,18 @@ int main()
                 net.agregar_enrutador(name);
                 break;
             case 2:
+                cout << "Ingrese el nombre del enrutador a eliminar: ";
+                cin >> name;
+                net.eliminar_enrutador(name);
                 break;
             case 3:
+                cout << "Ingrese el nombre del enrutador a imprimir: ";
+                cin >> name;
+                net.imprimir_enrutador(name);
                 break;
             case 4:
                 break;
-            case 5:
+            default:
                 break;
 
 

@@ -12,7 +12,7 @@ void red::agregar_enrutador(char nombre)
             it->second.agregar_enlace(nombre,-1);
         }
         do{
-            cout << "Ingrese el nombre del nodo con el que se va a enlazar el nodo. Presiona % para no agregar ningún nombre." <<  nombre << endl;
+            cout << "Ingrese el nombre del nodo con el que se va a enlazar el nodo " <<  nombre << ". Presiona % para no agregar ningun nombre."<< endl;
             cin >> name;
             if(name!='%'){
                 cout << "Ingrese el costo del enlace: ";
@@ -24,3 +24,36 @@ void red::agregar_enrutador(char nombre)
         net.insert(pair<char,enrutador>(nombre,router));
     }
 }
+
+
+void red::eliminar_enrutador(char nombre)
+{
+    enrutador router;
+    if(net.find(nombre)!=net.end()){
+        router.eliminar_enlace(nombre);
+        for(it=net.begin();it!=net.end();it++){
+            router.eliminar_enlace(it->first);
+            it->second.eliminar_enlace(nombre);
+        }
+    }
+}
+
+
+void red::imprimir_enrutador(char nombre)
+{
+    enrutador router;
+    if(net.find(nombre)!=net.end()){
+        cout << nombre << '\t';
+        net[nombre].imprimir();
+        cout << endl;
+    }
+    else cout << "El enrutador no existe" << endl;
+
+
+
+
+
+}
+
+
+
