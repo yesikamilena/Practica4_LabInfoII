@@ -1,16 +1,18 @@
 #include "Enrutador.h"
+#include "Red.h"
 
 using namespace std;
 
 int main()
 {
     enrutador router;
+    red net;
     int a;
     char name;
 
     while(true){
         char punto;
-        cout << "Elije el punto que quieres hacer (Del A al E): " << endl;
+        cout << "Elije el punto que quieres hacer (Del A al E): ";
         cin>> punto;
 
         switch(punto){
@@ -42,6 +44,25 @@ int main()
             break;
         case 'B':
             cout <<"Escogiste el B"<<endl;
+            cout << "Presiona 1 para agregar enlace: ";
+            cin >> a;
+            switch (a){
+            case 1:
+                cout << "Ingrese el nombre del nuevo enrutador: ";
+                cin >> name;
+                net.agregar_enrutador(name);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+
+
+            }
             break;
         case 'C':
             cout <<"Escogiste el C"<<endl;
