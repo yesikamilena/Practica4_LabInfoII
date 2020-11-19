@@ -7,10 +7,12 @@ int main()
 {
     enrutador router;
     red net;
+    red net2;
     int a;
     char name;
     string texto;
     string nombre_texto;
+    char inicio, fin;
 
     while(true){
         char punto;
@@ -88,9 +90,15 @@ int main()
 
         case 'D':
             cout <<"Escogiste el D"<<endl;
+            cout<< "Dame el router de inicial y el router final: "<<endl;
+            cin>>inicio >> fin;
+            net2=net;
+            net.mejor_ruta(inicio, fin);
+            net=net2;
             break;
         case 'E':
             cout <<"Escogiste el E"<<endl;
+            net.matriz_aleatoria();
             break;
         }
 

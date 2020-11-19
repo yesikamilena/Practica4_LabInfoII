@@ -13,6 +13,9 @@ public:
     void imprimir_enrutador(char nombre);
     void leer_txt(string name);
     void imprimir_matriz_adyacencia();
+    void mejor_ruta(char inicio, char fin);
+    void matriz_aleatoria();
+    void agregar_enrutador_aleatorio(char nombre, int i);
 private:
     map<char,enrutador> net;
     map<char,enrutador>::iterator it;

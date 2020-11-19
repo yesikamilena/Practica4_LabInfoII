@@ -13,6 +13,7 @@ public:
     bool modificar_enlace(char nombre, int costo);
     void imprimir();
     void imprimir_costo();
+    void reducir_red();
 private:
     map<char,int> router;
     map<char,int>::iterator it;

@@ -39,3 +39,13 @@ void enrutador::imprimir_costo()
 {
     for(it=router.begin();it!=router.end();it++)    cout<<it->second << '\t';
 }
+
+void enrutador::reducir_red()
+{
+    for(it=router.begin();it!=router.end();it++){
+        if (it->second==0 || it->second==-1){
+            router.erase(it->first);
+        }
+    }
+    //return it->second;
+}
