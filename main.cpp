@@ -9,6 +9,8 @@ int main()
     red net;
     int a;
     char name;
+    string texto;
+    string nombre_texto;
 
     while(true){
         char punto;
@@ -46,7 +48,7 @@ int main()
             break;
         case 'B':
             cout <<"Escogiste el B"<<endl;
-            cout << "Presiona 1 para agregar enlace, 2  para eliminar enlace, 3 para imprimir enrutador y 4 para imprimir toda la red: ";
+            cout << "Presiona 1 para agregar enlace, 2  para eliminar enlace, 3 para imprimir enrutador y 4 para imprimir toda la red, 5 para configurar la red del texto red.txt:  ";
             cin >> a;
             switch (a){
             case 1:
@@ -65,6 +67,13 @@ int main()
                 net.imprimir_enrutador(name);
                 break;
             case 4:
+                net.imprimir_todo();
+                break;
+            case 5:
+                cout<<"dame el nombre del archivo de texto: ";
+                cin>>nombre_texto;
+                net.leer_txt(nombre_texto);
+                cout << texto <<endl;
                 break;
             default:
                 break;
@@ -73,7 +82,8 @@ int main()
             }
             break;
         case 'C':
-            cout <<"Escogiste el C"<<endl;
+            cout <<"Escogiste el C. Se va a imprimir la MATRIZ DE ADYACENCIA"<<endl;
+            net.imprimir_matriz_adyacencia();
             break;
 
         case 'D':
@@ -87,3 +97,4 @@ int main()
     }
     return 0;
 }
+

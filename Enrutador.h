@@ -12,6 +12,7 @@ public:
     bool eliminar_enlace(char nombre);
     bool modificar_enlace(char nombre, int costo);
     void imprimir();
+    void imprimir_costo();
 private:
     map<char,int> router;
     map<char,int>::iterator it;
