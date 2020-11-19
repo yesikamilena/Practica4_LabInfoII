@@ -74,6 +74,7 @@ int main()
             case 5:
                 cout<<"dame el nombre del archivo de texto: ";
                 cin>>nombre_texto;
+                net.eliminar_todo();
                 net.leer_txt(nombre_texto);
                 cout << texto <<endl;
                 break;

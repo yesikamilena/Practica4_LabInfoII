@@ -35,6 +35,10 @@ void enrutador::imprimir()
     for(it=router.begin();it!=router.end();it++)    cout<<it->first << '\t' << it->second <<endl;
 }
 
+
+
+
+
 void enrutador::imprimir_costo()
 {
     for(it=router.begin();it!=router.end();it++)    cout<<it->second << '\t';

@@ -12,6 +12,7 @@ public:
     bool eliminar_enlace(char nombre);
     bool modificar_enlace(char nombre, int costo);
     void imprimir();
+    void eliminar();
     void imprimir_costo();
     void reducir_red();
 private:

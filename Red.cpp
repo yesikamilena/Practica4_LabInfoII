@@ -63,6 +63,16 @@ void red::imprimir_todo()
 }
 
 
+void red::eliminar_todo()
+{
+    enrutador router;
+    for(it=net.begin();it!=net.end();it++){
+        net.erase(it->first);
+        }
+        cout << endl;
+}
+
+
 void red::leer_txt(string name)
 {
     string data, data2;
@@ -73,12 +83,8 @@ void red::leer_txt(string name)
     //data.append("\n\r");
     //data.append(data2);
     cout<<data2<<endl;
-    cout<<data2[0]<<endl;
-    cout<<data2[1]<<endl;
-    cout<<data2[2]<<endl;
-    cout<<data2[3]<<endl;
-    cout<<data2[4]<<endl;
-
+    agregar_enrutador_txt(data2);
+    cout<<data2<<endl;
     //cout<<"    "<<endl;
     }
     }
@@ -108,6 +114,81 @@ void red::leer_txt(string name)
 //    }
 //    else cout << "El archivo de texto no existe" << endl;
     //    k.close();
+}
+
+void red::agregar_enrutador_txt(string linea)
+{
+    enrutador router;
+    char name=linea[2];
+    int valor=0;
+    int entero=0;
+    int entero2=0;
+    char nombre=linea[0];
+    for(int j=4; j<linea.length(); j++){
+        entero=char2int(linea[j]);
+        entero2=entero2*10+entero;
+    }
+    valor=entero2;
+
+    router.agregar_enlace(nombre,0);
+    for(it=net.begin();it!=net.end();it++){
+        router.agregar_enlace(it->first,-1);
+        it->second.agregar_enlace(nombre,-1);
+    }
+
+//    router.agregar_enlace(nombre,0);
+    //router.agregar_enlace(linea[2],0);
+
+//    for(it=net.begin();it!=net.end();it++){
+//        router.agregar_enlace(it->first,-1);
+//        it->second.agregar_enlace(nombre,-1);
+//    }
+
+
+    if(!router.modificar_enlace(name,valor)) {
+        router.agregar_enlace(name,-1);
+//        for(it=net.begin();it!=net.end();it++){
+//        net[name].agregar_enlace(it->first,-1);
+//        it->second.agregar_enlace(name,-1);
+//    }
+
+        router.modificar_enlace(name,valor);
+    }
+
+    net[name].modificar_enlace(nombre,valor);
+
+    net.insert(pair<char,enrutador>(nombre,router));
+
+
+//    if(net.find(nombre)==net.end()){
+//        router.agregar_enlace(nombre,0);
+//        for(it=net.begin();it!=net.end();it++){
+//            router.agregar_enlace(it->first,-1);
+//            it->second.agregar_enlace(nombre,-1);
+//        }
+//        do{
+//            cout << "Ingrese el nombre del nodo con el que se va a enlazar el nodo " <<  nombre << ". Presiona % para no agregar ningun nombre."<< endl;
+//            cin >> name;
+//            if(name!='%'){
+//                cout << "Ingrese el costo del enlace: ";
+//                cin >> valor;
+//                if(!router.modificar_enlace(name,valor))    cout << "El nodo ingresado no existe" << endl;
+//                else net[name].modificar_enlace(nombre,valor);
+//            }
+//        }while(name!='%');
+//        net.insert(pair<char,enrutador>(nombre,router));
+//    }
+
+
+
+
+}
+
+int red::char2int(char caracter)
+{
+    int entero=0;
+    entero=caracter-48;
+    return entero;
 }
 
 void red::imprimir_matriz_adyacencia()
@@ -149,6 +230,8 @@ void red::agregar_enrutador_aleatorio(char nombre, int i)
     enrutador router;
     char name;
     int valores=0;
+    int maximo_valor_nombre;
+    bool repetido=0;
     router.agregar_enlace(nombre,0);
     for(it=net.begin();it!=net.end();it++){
         router.agregar_enlace(it->first,-1);
@@ -166,8 +249,16 @@ void red::agregar_enrutador_aleatorio(char nombre, int i)
         int numero_rutas=0;
         numero_rutas= rand() % i + 1;
         do{
-            name=64+numero_rutas;
-            if(numero_rutas>0){
+            repetido=0;
+            maximo_valor_nombre=64+numero_rutas+65;
+            name= rand() % maximo_valor_nombre + 65;
+            int* vector_usados=new int [numero_rutas];
+
+            for(i=0; i<numero_rutas; i++){
+                if (vector_usados[i]==name) repetido=1;
+            }
+
+            if(numero_rutas>0 | repetido==0){
 
                 valores= rand() % 100 + 1;
                 if(!router.modificar_enlace(name,valores))    cout << "El nodo ingresado no existe" << endl;
