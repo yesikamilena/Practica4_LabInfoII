@@ -3,6 +3,10 @@
 #include <fstream>
 #include <string>
 
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
 #include "Enrutador.h"
 
 class red{
@@ -20,7 +24,7 @@ public:
     void mejor_ruta(char inicio, char fin);
     void mejor_ruta_2();
     void matriz_aleatoria();
-    void agregar_enrutador_aleatorio(char nombre, int i);
+    void agregar_enrutador_aleatorio(char nombre, int i, int numero_routers);
 private:
     map<char,enrutador> net;
     map<char,enrutador>::iterator it;
