@@ -10,7 +10,7 @@ int main()
     red net2;
     int a;
     char name;
-    string texto;
+    //string texto;
     string nombre_texto;
     char inicio, fin;
 
@@ -72,11 +72,11 @@ int main()
                 net.imprimir_todo();
                 break;
             case 5:
-                cout<<"dame el nombre del archivo de texto: ";
+                cout<<"Dame el nombre del archivo de texto: ";
                 cin>>nombre_texto;
                 net.eliminar_todo();
                 net.leer_txt(nombre_texto);
-                cout << texto <<endl;
+                //cout << texto <<endl;
                 break;
             default:
                 break;
@@ -90,15 +90,17 @@ int main()
             break;
 
         case 'D':
-            cout <<"Escogiste el D"<<endl;
-            cout<< "Dame el router de inicial y el router final: "<<endl;
-            cin>>inicio >> fin;
-            net2=net;
-            net.mejor_ruta(inicio, fin);
-            net=net2;
+//            cout <<"Escogiste el D"<<endl;
+//            cout<< "Dame el router de inicial y el router final: "<<endl;
+//            cin>>inicio >> fin;
+//            net2=net;
+//            net.mejor_ruta(inicio, fin);
+//            net=net2;
+           // net.mejor_ruta_2();
             break;
         case 'E':
             cout <<"Escogiste el E"<<endl;
+            net.eliminar_todo();
             net.matriz_aleatoria();
             break;
         }
