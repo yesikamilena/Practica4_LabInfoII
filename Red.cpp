@@ -271,13 +271,13 @@ void red::agregar_enrutador_aleatorio(char nombre, int i, int numero_routers)
 {
     enrutador router;
 
-    srand (time(NULL));
+    //srand (time(NULL));
     char name;
     int valores=0;
-    int maximo_valor_name;
+    //int maximo_valor_name;
     bool repetido=0;
     int l=0;
-    int name_int=0;
+    //int name_int=0;
 //    router.agregar_enlace(nombre,0);
 //    for(it=net.begin();it!=net.end();it++){
 //        router.agregar_enlace(it->first,-1);
@@ -304,24 +304,24 @@ void red::agregar_enrutador_aleatorio(char nombre, int i, int numero_routers)
     int rutas_maximas;
     int maximo_valor_random=0;
 
-    int* vector_usados=new int [numero_rutas];
-/*
-    if (numero_routers==2){  //Si hay solo 2 routers, entonces se deben conectar entre ellos
-        name='A';
-        valores= rand() % 100 + 1;
-        cout<<"valor: "<<valores<<endl;
-        router.modificar_enlace(name,valores);
-        //net[nombre].modificar_enlace(name,valores); //Añadido
-        net[name].modificar_enlace(nombre,valores);
-    }
+//    int* vector_usados=new int [numero_rutas];
 
-*/
+//    if (numero_routers==2){  //Si hay solo 2 routers, entonces se deben conectar entre ellos
+//        name='A';
+//        valores= rand() % 100 + 1;
+//        cout<<"valor: "<<valores<<endl;
+//        router.modificar_enlace(name,valores);
+//        //net[nombre].modificar_enlace(name,valores); //Añadido
+//        net[name].modificar_enlace(nombre,valores);
+//    }
+
+
     //else
     if(numero_routers>1){
         rutas_maximas=i+1;
-        cout<<"rutas_maximas: "<<rutas_maximas<<endl;
+        //cout<<"rutas_maximas: "<<rutas_maximas<<endl;
         numero_rutas= rand() % rutas_maximas + 1;
-        cout<<"numero_rutas: "<<numero_rutas<<endl;
+        //cout<<"numero_rutas: "<<numero_rutas<<endl;
         //nombre='A';
 
         do{
@@ -346,7 +346,7 @@ void red::agregar_enrutador_aleatorio(char nombre, int i, int numero_routers)
 
             maximo_valor_random=rand() % i;
             name=65+maximo_valor_random;
-            cout<<"name: "<<name<<endl;
+            //cout<<"name: "<<name<<endl;
 
             }
             //for(int k=0; k<numero_rutas; k++){
@@ -363,29 +363,6 @@ void red::agregar_enrutador_aleatorio(char nombre, int i, int numero_routers)
             }
         }while(numero_rutas>0);
     }
-//        do{
-//            name=64+numero_rutas;
-//            if(numero_rutas>0){
-//            repetido=0;
-//            maximo_valor_name=64+numero_rutas;
-//            name= rand() % maximo_valor_name + 65;
-//            cout<<"name: "<<name<<endl;
-//            int* vector_usados=new int [numero_rutas];
-
-//            for(i=0; i<numero_rutas; i++){
-//                if (vector_usados[i]==name) repetido=1;
-//            }
-
-//            if(numero_rutas>0 | repetido==0){
-
-//                valores= rand() % 100 + 1;
-//                if(!router.modificar_enlace(name,valores))    cout << "El nodo ingresado no existe" << endl;
-//                else net[name].modificar_enlace(nombre,valores);
-//                numero_rutas--;
-//            }
-//            }
-//        }while(numero_rutas>0);
-//    }
     net.insert(pair<char,enrutador>(nombre,router));
 }
 
