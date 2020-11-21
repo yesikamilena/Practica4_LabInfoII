@@ -10,6 +10,7 @@ bool enrutador::agregar_enlace(char nombre, int costo)
     return st;
 }
 
+
 bool enrutador::eliminar_enlace(char nombre)
 {
     bool st=false;
@@ -19,6 +20,7 @@ bool enrutador::eliminar_enlace(char nombre)
     }
     return st;
 }
+
 
 bool enrutador::modificar_enlace(char nombre, int costo)
 {
@@ -30,19 +32,18 @@ bool enrutador::modificar_enlace(char nombre, int costo)
     return st;
 }
 
+
 void enrutador::imprimir()
 {
     for(it=router.begin();it!=router.end();it++)    cout<<it->first << '\t' << it->second <<endl;
 }
 
 
-
-
-
 void enrutador::imprimir_costo()
 {
     for(it=router.begin();it!=router.end();it++)    cout<<it->second << '\t';
 }
+
 
 void enrutador::reducir_red()
 {

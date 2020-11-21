@@ -10,9 +10,8 @@ int main()
     red net2;
     int a;
     char name;
-    //string texto;
     string nombre_texto;
-    char inicio, fin;
+    //char inicio, fin;
 
     while(true){
         char punto;
@@ -76,19 +75,15 @@ int main()
                 cin>>nombre_texto;
                 net.eliminar_todo();
                 net.leer_txt(nombre_texto);
-                //cout << texto <<endl;
                 break;
             default:
                 break;
-
-
             }
             break;
         case 'C':
             cout <<"Escogiste el C. Se va a imprimir la MATRIZ DE ADYACENCIA"<<endl;
             net.imprimir_matriz_adyacencia();
             break;
-
         case 'D':
 //            cout <<"Escogiste el D"<<endl;
 //            cout<< "Dame el router de inicial y el router final: "<<endl;
@@ -96,7 +91,6 @@ int main()
 //            net2=net;
 //            net.mejor_ruta(inicio, fin);
 //            net=net2;
-           // net.mejor_ruta_2();
             break;
         case 'E':
             cout <<"Escogiste el E"<<endl;
